@@ -1,5 +1,7 @@
 package com.lambdaschool.javaorders.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ public class Payment {
 	private String type;
 
 	@ManyToMany(mappedBy = "payments")
+	@JsonIgnoreProperties("payments")
 	private List<Order> orders = new ArrayList<>();
 
 	public Payment() {
